@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* seu CSS aqui (mesmo do seu código) */
     * {
       box-sizing: border-box;
     }
@@ -22,10 +21,11 @@
     .background {
       background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url('https://br.eaata.pro/cdn/shop/files/quem_somos1920.webp?v=1705518698&width=3840') no-repeat center center/cover;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 20px;
     }
 
     .form-container {
@@ -33,9 +33,10 @@
       border-radius: 20px;
       display: flex;
       flex-direction: row;
-      width: 90%;
+      width: 100%;
       max-width: 900px;
-      padding: 20px;
+      padding: 0;
+      overflow: hidden;
       box-shadow: 0 0 40px rgba(0,0,0,0.4);
     }
 
@@ -44,17 +45,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction:column;
+      flex-direction: column;
       padding: 20px;
       background-color: #f7f7f7;
-      border-radius: 15px 0 0 15px;
-      gap:20px;
+      gap: 20px;
     }
 
     .left img {
-      max-width: 80%;
+      max-width: 100%;
       height: auto;
-      max-height: 300px;
     }
 
     .right {
@@ -120,27 +119,59 @@
     @media (max-width: 768px) {
       .form-container {
         flex-direction: column;
-        border-radius: 20px;
       }
 
       .left, .right {
         width: 100%;
-        border-radius: 20px 20px 0 0;
+        border-radius: 0;
       }
 
       .right {
-        border-radius: 0 0 20px 20px;
+        padding: 20px;
+      }
+
+      .right h2 {
+        font-size: 1.5em;
+        text-align: center;
+      }
+
+      .input-group {
+        flex-direction: row;
+        padding: 8px;
+      }
+
+      .input-group i {
+        font-size: 1em;
+        margin-right: 8px;
+      }
+
+      .input-group input {
+        font-size: 0.95em;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 1em;
+      }
+
+      .left {
+        padding: 20px 10px;
+        gap: 10px;
+      }
+
+      .left img {
+        max-height: 200px;
+        max-width: 80%;
       }
     }
   </style>
 </head>
 <body>
-
   <div class="background">
     <div class="form-container">
       <div class="left">
         <img src="logo.png" alt="Logo Athena Consultoria" />
-        <img src="logo_max.png" alt="Logo Max Ferramentas" style="max-width: 100%;">
+        <img src="logo_max.png" alt="Logo Max Ferramentas">
       </div>
       <div class="right">
         <h2>Inscreva-se no Curso</h2>
@@ -188,14 +219,11 @@
           return;
         }
 
-        // Redireciona para página de obrigado
         window.location.href = 'obrigado.html';
-
       } catch (err) {
         alert('Erro na requisição');
       }
     });
   </script>
-
 </body>
 </html>
