@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node server.js"
   },
+  "type": "module",
   "keywords": [
     "express",
     "form",
@@ -17,6 +18,8 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "dotenv": "^17.2.1",
+    "express": "^4.18.2",
+    "postgres": "^3.4.7"
   }
 }
