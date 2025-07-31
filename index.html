@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Inscrição - Curso Athena</title>
-  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
+    /* seu CSS aqui (mesmo do seu código) */
     * {
       box-sizing: border-box;
     }
@@ -136,11 +137,11 @@
   <div class="background">
     <div class="form-container">
       <div class="left">
-        <img src="Logo - ATHENA - PNG - Padrão.png" alt="Logo Athena Consultoria" />
+        <img src="logo.png" alt="Logo Athena Consultoria" />
       </div>
       <div class="right">
         <h2>Inscreva-se no Curso</h2>
-        <form action="#" method="POST">
+        <form id="formInscricao" method="POST">
           <div class="input-group">
             <i class="fa fa-user"></i>
             <input type="text" name="nome" placeholder="Seu nome" required />
@@ -162,6 +163,36 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const form = document.getElementById('formInscricao');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = new URLSearchParams(formData);
+
+      try {
+        const response = await fetch('http://localhost:3000/inscrever', {
+          method: 'POST',
+          body: data,
+        });
+
+        if (!response.ok) {
+          const error = await response.json();
+          alert(error.error || 'Erro ao enviar');
+          return;
+        }
+
+        // Redireciona para página de obrigado
+        window.location.href = 'obrigado.html';
+
+      } catch (err) {
+        alert('Erro na requisição');
+      }
+    });
+  </script>
 
 </body>
 </html>

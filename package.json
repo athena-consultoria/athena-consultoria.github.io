@@ -1,0 +1,22 @@
+{
+  "name": "athena-consultoria-backend",
+  "version": "1.0.0",
+  "description": "Backend para receber formulário do site Athena Consultoria",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "form",
+    "backend",
+    "cors"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
