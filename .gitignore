@@ -18,3 +18,7 @@ logs
 
 # Optional OS files
 Thumbs.db
+
+*.xlsx
+*.csv
+*.py
